@@ -1,4 +1,5 @@
 var dict = require('./dict.js');
+
 var chinesecharacter= {
     dict:dict,
     
@@ -10,12 +11,82 @@ var chinesecharacter= {
             return '';
          }
     },
+    firstAll:function(str,join){
+         var list=str.split("");
+         var result=[];
+         for(var i=0;i<list.length;i++){
+                var word=list[i];
+                result.push(this.first(word));
+         }
+         if(join===false){
+            return result;
+         }else{
+            return result.join("");
+         }
+    },
+    firstSort:function(list,key){
+        if(key){
+                for(var i=0;i<list.length;i++){
+                    var word=list[i][key];
+                    list[i]['_f']= this.first(word);
+                }
+                list.sort(function(a,b){
+                    if (a._f > b._f){
+                        return 1;
+                    }else if (a._f < b._f){
+                        return -1;
+                    }else{
+                        return 0;
+                    }
+                });
+                for(var j=0;j<list.length;j++){
+                    delete(list[j]['_f']);
+                }
+                return list; 
+        }else{
+                var arr=[];
+                for(var i=0;i<list.length;i++){
+                    var obj={};
+                    var word=list[i];
+                    obj['value']=word;
+                    obj['_f']= this.first(word);
+                    arr.push(obj);
+                }
+                arr.sort(function (a,b){
+                    if (a._f > b._f) {
+                        return 1;
+                    }else if (a._f < b._f){
+                        return -1;
+                    }else{
+                        return 0;
+                    }
+                }); 
+                var result=[];
+                for(var j=0;j<arr.length;j++){
+                    result.push(arr[j]['value']);
+                }
+                return result; 
+        }
+    },
     pin:function(str){
          var key=str.substr(0,1);
          if(this.dict[key]){
             return this.dict[key][1];
          }else{
             return '';
+         }
+    },
+    pinAll:function(str,join){
+         var list=str.split("");
+         var result=[];
+         for(var i=0;i<list.length;i++){
+                var word=list[i];
+                result.push(this.pin(word));
+         }
+         if(join===false){
+            return result;
+         }else{
+            return result.join("");
          }
     },
     yin:function(str){
@@ -26,6 +97,19 @@ var chinesecharacter= {
             return '';
          }
     },
+    yinAll:function(str,join){
+         var list=str.split("");
+         var result=[];
+         for(var i=0;i<list.length;i++){
+                var word=list[i];
+                result.push(this.yin(word));
+         }
+         if(join===false){
+            return result;
+         }else{
+            return result.join("");
+         }
+    },
     diao:function(str){
          var key=str.substr(0,1);
          if(this.dict[key]){
@@ -34,23 +118,32 @@ var chinesecharacter= {
             return '';
          }
     },
-    ju:function(str,yin,join){
-         var arr=str.split("");
+    diaoAll:function(str,join){
+         var list=str.split("");
          var result=[];
-         for(var i=0;i<arr.length;i++){
-                var word=arr[i];
-                if(yin){
-                     result.push(this.yin(word));
-                }else{ 
-                     result.push(this.pin(word));
-                }
+         for(var i=0;i<list.length;i++){
+                var word=list[i];
+                result.push(this.diao(word));
          }
-         if(join){
-            return result.join("");
-         }else{
+         if(join===false){
             return result;
+         }else{
+            return result.join("");
          }
-
+    },
+    count:function(str,punc){
+        if(punc){
+            var reg = /[\u4E00-\u9FA5\uf900-\ufa2d\。\，\、\；\：\？\！\“\”\‘\'\╗\╚\┐\└\（\）\…\—\《\》\〈\〉\·\.\%\(\)\[\]\{\}\;\:\"\'\,\?]/ig;
+        }else{
+            var reg = /[\u4E00-\u9FA5\uf900-\ufa2d]/ig;
+        } 
+        var words = str.match(reg);
+        if(words){
+            var wordcount=words.length;
+        }else{
+            var wordcount=0;
+        }
+        return wordcount;
     },
     html_encode:function (str){ // &lt;&nbsp;&gt;&quot;&amp;&apos;
          return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/ /g,'&nbsp;').replace(/\'/g,'&apos;').replace(/\"/g,'&quot;');

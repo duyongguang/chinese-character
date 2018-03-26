@@ -28,21 +28,60 @@ console.log('--------------------');
 var str=chinese.first('國家对抗');
 console.log(str); 
 console.log('--------------------');
+var str=chinese.firstAll('國家对抗');
+console.log(str); 
+console.log('--------------------');
+var str=chinese.firstAll('國家对抗',join=false);
+console.log(str); 
+console.log('--------------------');
+
 var str=chinese.pin('國家对抗');
 console.log(str); 
 console.log('--------------------');
+var str=chinese.pinAll('國家对抗');
+console.log(str); 
+console.log('--------------------');
+var str=chinese.pinAll('國家对抗',join=false);
+console.log(str); 
+console.log('--------------------');
+
+
 var str=chinese.yin('國家对抗');
 console.log(str); 
 console.log('--------------------');
+var str=chinese.yinAll('國家对抗');
+console.log(str); 
+console.log('--------------------');
+var str=chinese.yinAll('國家对抗',join=false);
+console.log(str); 
+console.log('--------------------');
+
+
+
 var str=chinese.diao('國家对抗');
 console.log(str); 
 console.log('--------------------');
-var str=chinese.ju('國家对抗');
+var str=chinese.diaoAll('國家对抗');
 console.log(str); 
 console.log('--------------------');
-var str=chinese.ju('國家对抗',true);
+var str=chinese.diaoAll('國家对抗',join=false);
 console.log(str); 
 console.log('--------------------');
-var str=chinese.ju('國家对抗',false,true);
+
+
+
+var str=chinese.count('國家。，、；：？！“”╗╚┐└（）…—《》〈〉·.%()[]{};:"?对抗');
+console.log(str); 
+console.log('--------------------');
+
+var str=chinese.count('國家。，、；：？！“”╗╚┐└（）…—《》〈〉·.%()[]{};:"?对抗',punc=true);
+console.log(str); 
+console.log('--------------------');
+
+var str=chinese.firstSort([{'title':'世界'},{'title':'你好'}], 'title');
+console.log(str); 
+console.log('--------------------');
+
+var str=chinese.firstSort(['世界','你好']);
 console.log(str); 
 console.log('--------------------');
