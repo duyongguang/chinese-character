@@ -122,14 +122,43 @@ var str=chinese.count('國家，对抗',punc=true);
 console.log(str); 
 //返回5
 
+
 //数组内对象的中文属性排序
-var str=chinese.firstSort([{'title':'世界'},{'title':'你好'}], 'title');
+var str=chinese.firstSort([{'title':'世界'},{'title':'你好'},{'title':'时间'},{'title':'白天'},{'title':'宁静'},{'title':'闪电'}], 'title');
 console.log(str); 
-//返回 [ { title: '你好' }, { title: '世界' } ]
+/*返回
+[ { title: '白天' },
+  { title: '你好' },
+  { title: '宁静' },
+  { title: '世界' },
+  { title: '时间' },
+  { title: '闪电' } ]
+*/
+
 
 //数组内中文排序
-var str=chinese.firstSort(['世界','你好']);
+var str=chinese.firstSort(['世界','你好','时间','白天','宁静','闪电']);
 console.log(str); 
-//返回 [ '你好', '世界' ]
+//返回 [ '白天', '你好', '宁静', '世界', '时间', '闪电' ]
+
+
+//数组内对象的中文属性排序后分组
+var str=chinese.firstGroupSort([{'title':'世界'},{'title':'你好'},{'title':'时间'},{'title':'白天'},{'title':'宁静'},{'title':'闪电'}], 'title');
+console.log(str); 
+/* 返回
+[ { first: 'b', data: [ [Object] ] },
+  { first: 'n', data: [ [Object], [Object] ] },
+  { first: 's', data: [ [Object], [Object], [Object] ] } ]
+*/
+
+
+//数组内中文排序后分组
+var str=chinese.firstGroupSort(['世界','你好','时间','白天','宁静','闪电']);
+console.log(str); 
+/* 返回
+[ { first: 'b', data: [ '白天' ] },
+  { first: 'n', data: [ '你好', '宁静' ] },
+  { first: 's', data: [ '世界', '时间', '闪电' ] } ]
+*/
 
 ```

@@ -78,10 +78,18 @@ var str=chinese.count('國家。，、；：？！“”╗╚┐└（）…—
 console.log(str); 
 console.log('--------------------');
 
-var str=chinese.firstSort([{'title':'世界'},{'title':'你好'}], 'title');
+var str=chinese.firstSort([{'title':'世界'},{'title':'你好'},{'title':'时间'},{'title':'白天'},{'title':'宁静'},{'title':'闪电'}], 'title');
 console.log(str); 
 console.log('--------------------');
 
-var str=chinese.firstSort(['世界','你好']);
+var str=chinese.firstSort(['世界','你好','时间','白天','宁静','闪电']);
+console.log(str); 
+console.log('--------------------');
+
+var str=chinese.firstGroupSort([{'title':'世界'},{'title':'你好'},{'title':'时间'},{'title':'白天'},{'title':'宁静'},{'title':'闪电'}], 'title');
+console.log(str); 
+console.log('--------------------');
+
+var str=chinese.firstGroupSort(['世界','你好','时间','白天','宁静','闪电']);
 console.log(str); 
 console.log('--------------------');
