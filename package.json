@@ -1,24 +1,19 @@
 {
-  "author": "duyongguang <yongguangdu@gmail.com> (http://nodeclass.com)",
-  "description": "operate chinese string",
-  "homepage": "https://github.com/duyongguang/chinese-character,
-  "keywords": [
-    "chinese",
-    "hanzi",
-    "pinyin"
-  ],
+  "author": {
+    "name": "duyongguang",
+    "email": "yongguangdu@gmail.com",
+    "url": "http://nodeclass.com"
+  },
+  "dependencies": {
+  },
+  "description": "operate chinese string function first,sort,count,pin ...",
+  "homepage": "https://github.com/duyongguang/chinese-character",
+  "keywords": ["chinese","pinyin","hanzi"],
   "main": "index.js",
   "name": "chinese-character",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/duyongguang/chinese-character.git"
   },
-  "version": "1.0.1",
-  "bugs": {
-    "url": "https://github.com/duyongguang/chinese-character/issues"
-  },
-  "scripts": {
-    "test": "node test.js"
-  },
-  "license": "ISC"
+  "version": "1.0.0"
 }
