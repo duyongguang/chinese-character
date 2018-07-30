@@ -18,9 +18,9 @@ console.log(str);
 var str=chinese.unicode16_to_string('&#x4E2D;&#x6587;');
 console.log(str); 
 
-var str=chinese.html_encode('\'< >"&');
+var str=chinese.html_encode('\'< >"&©±“”');
 console.log(str); 
-var str=chinese.html_decode('&apos;&lt;&nbsp;&gt;&quot;&amp;');
+var str=chinese.html_decode('&apos;&lt;&nbsp;&gt;&quot;&amp;&copy;&plusmn;&ldquo;&rdquo;');
 console.log(str); 
 console.log('--------------------');
 
